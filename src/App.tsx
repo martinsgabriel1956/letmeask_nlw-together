@@ -1,11 +1,19 @@
-import { Button } from "./components/Button";
-interface buttonProps {
-  text?: string;
-}
+import { BrowserRouter, Route} from 'react-router-dom';
 
+import './styles/global.scss'
 
-export function App(props: ButtonProps) {
+import { Home } from "./pages/Home";
+import { NewRoom } from "./pages/NewRoom";
+
+import { AuthContextProvider } from './contexts/AuthContext'
+
+export function App() {
   return (
-    <Button></Button>
+    <BrowserRouter>
+      <AuthContextProvider>
+        <Route path="/" exact component={Home} />
+        <Route path="/rooms/new" component={NewRoom} />
+      </AuthContextProvider>
+    </BrowserRouter>
   );
 }
