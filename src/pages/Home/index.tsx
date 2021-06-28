@@ -1,15 +1,17 @@
 import { FormEvent, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import '../styles/pages/auth.scss';
+import toast, { Toaster } from 'react-hot-toast';
 
-import { useAuth } from '../hooks/useAuth';
-import { Button } from '../components/Button';
-import { database } from '../services/firebase';
+import './styles.scss';
 
-import illustrationImg from '../assets/illustration.svg';
-import logo from '../assets/logo.svg';
-import googleIconImage from '../assets/google-icon.svg';
+import { useAuth } from '../../hooks/useAuth';
+import { Button } from '../../components/Button';
+import { database } from '../../services/firebase';
+
+import illustrationImg from '../../assets/illustration.svg';
+import logo from '../../assets/logo.svg';
+import googleIconImage from '../../assets/google-icon.svg';
 
 export function Home() {
   const history = useHistory();
@@ -29,7 +31,12 @@ export function Home() {
     const roomRef = await database.ref(`rooms/${roomCode}`).get();
     
     if(!roomRef.exists()) {
-      alert(`Room does not exists.`)
+      toast.error("Room does not exists.");
+      return;
+    }
+
+    if(roomRef.val().endedAt) {
+      toast.error(`Room already closed.`)
       return;
     }
 
@@ -42,6 +49,9 @@ export function Home() {
 
   return (
     <div id="page-auth">
+      <div>
+        <Toaster position="top-center" reverseOrder={false} />
+      </div>
       <aside>
         <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />
         <strong>Crie salas de Q&amp;A ao-vivo</strong>

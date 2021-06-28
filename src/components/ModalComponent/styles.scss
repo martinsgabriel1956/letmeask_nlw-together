@@ -1,0 +1,70 @@
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-info {
+  width: 590px;
+  height: 362px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  border-radius: 32px;
+
+  img {
+     margin-bottom: 1.5rem; 
+  }
+
+  .delete-question {
+    margin-bottom: .75rem;
+
+    font-family: 'Poppins', sans-serif;
+  }
+
+  > span {
+    color: #737380;
+    margin-bottom: 2rem;
+  }
+
+  form {
+    display: flex;
+    gap: 10px;
+
+    > button {
+      cursor: pointer;
+      border-radius: 8px;
+      height: 50px;
+
+      transition: all .2s;
+
+      &:hover {
+        filter: brightness(.5);
+      }
+    }
+    
+    .cancel {
+      width: 132px;
+      background-color: #DBDCDD;
+      border: 1px solid #DBDCDD;
+      color: #7A7A86;
+      font-weight: 500;
+    }
+    
+    .accept {
+      width: 162px;
+      background-color: #E73F5D;
+      border: 1px solid #E73F5D;
+      color: #fff;
+      font-weight: 500;
+    }
+  }
+
+  
+}
