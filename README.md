@@ -9,6 +9,10 @@
 
 <br />
 
+https://user-images.githubusercontent.com/59969985/135781376-f7c3dbc8-63b9-4d43-8874-4801cc130d60.mp4
+
+<br />
+
 # :computer: Tecnologias
 
 - [React](https://reactjs.org/)
