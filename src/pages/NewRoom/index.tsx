@@ -26,9 +26,10 @@ export function NewRoom() {
     const firebaseRoom = await roomRef.push({
       title: newRoom,
       authorId: user?.id,
+      roomIsOpen: true,
     })
 
-    history.push(`/rooms/${firebaseRoom.key}`)
+    history.push(`/admin/rooms/${firebaseRoom.key}`)
   }
 
   function handleInputValueChange(event: React.ChangeEvent<HTMLInputElement>) {
